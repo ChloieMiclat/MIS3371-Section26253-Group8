@@ -25,6 +25,13 @@ body {
   border-bottom: 4px solid #C8102E;
 }
 
+/* Display the University of Houston campus */
+img[alt="University of Houston campus"] {
+  content: url("uh-sugar-land-campus-cougar-statue.jpg");
+  max-width: 100%;
+  height: auto;
+}
+
 h1,
 h2 {
   color: #7A1735;
@@ -92,14 +99,18 @@ textarea {
   font-weight: 400;
 }
 
+.feature-icon {
+  background: #B00D29;
+}
+
 button {
-  padding: 11px 18px;
+  padding: 12px 22px;
   font: inherit;
   font-weight: 700;
   color: #FFFFFF;
-  background: #C8102E;
+  background: #a11028;
   border: 0;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
