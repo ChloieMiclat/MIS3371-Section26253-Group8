@@ -64,107 +64,12 @@ body {
 
 }
 
-
-
-
-
-
-.brand-content {
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  overflow:hidden;
-
+/* Display the University of Houston campus */
+img[alt="University of Houston campus"] {
+  content: url("uh-sugar-land-campus-cougar-statue.jpg");
+  max-width: 100%;
+  height: auto;
 }
-
-
-
-
-
-
-
-.brand-text {
-
-  padding:25px 35px;
-
-}
-
-
-
-
-
-
-.brand-text h1 {
-
-  margin:0;
-
-  font-size:42px;
-
-  color:#7A1735;
-
-}
-
-
-
-
-
-
-
-.brand-text h3 {
-
-  margin:5px 0;
-
-  color:#23252A;
-
-}
-
-
-
-
-
-
-
-.brand-text p {
-
-  margin:0;
-
-  color:#676B72;
-
-}
-
-
-
-
-
-
-
-
-.campus-image {
-
-  width:50%;
-
-  height:150px;
-
-  object-fit:cover;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-/* Main headings */
-
 
 h1,
 h2 {
@@ -576,50 +481,19 @@ textarea:focus {
 
 }
 
-
-
-
-
-
-
-
-
-/* Button */
-
+.feature-icon {
+  background: #B00D29;
+}
 
 button {
-
-
-  margin-top:24px;
-
-
-  padding:14px 28px;
-
-
-  font:inherit;
-
-
-  font-size:17px;
-
-
-  font-weight:700;
-
-
-  color:#FFFFFF;
-
-
-  background:#C8102E;
-
-
-  border:none;
-
-
-  border-radius:8px;
-
-
-  cursor:pointer;
-
-
+  padding: 12px 22px;
+  font: inherit;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #a11028;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 
