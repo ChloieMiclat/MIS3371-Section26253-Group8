@@ -1,28 +1,67 @@
-/* WEEK 5 — SESSION 1 SOLUTION: desktop styling */
+/* WEEK 5 — SESSION 1 SOLUTION */
 
-/* Make width calculations predictable. */
-/*If I say an element is 300px side, its final visible width stays 300px, even when I add padding and a border */
+
+/* Make sizing predictable */
+
 * {
+
   box-sizing: border-box;
+
 }
+
+
+
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-  color: #23252A;
-  background: #F7F7F8;
+
+  margin:0;
+
+  font-family:Arial, sans-serif;
+
+  line-height:1.5;
+
+  color:#23252A;
+
+  background:#F7F7F8;
+
 }
+
+
+
+
+
+
+/* Center content */
 
 .page-shell {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 24px;
+
+  max-width:1100px;
+
+  margin:0 auto;
+
+  padding:30px;
+
 }
 
-.site-header {
-  background: #FFFFFF;
-  border-bottom: 4px solid #C8102E;
+
+
+
+
+
+
+
+
+/* =====================================================
+   CougarTutor+ Brand Header
+   ===================================================== */
+
+
+.brand-header {
+
+  background:#FFFFFF;
+
+  border-bottom:4px solid #C8102E;
+
 }
 
 /* Display the University of Houston campus */
@@ -34,69 +73,412 @@ img[alt="University of Houston campus"] {
 
 h1,
 h2 {
-  color: #7A1735;
+
+  color:#7A1735;
+
 }
+
+
+
+
+
+
+h2 {
+
+  margin-top:30px;
+
+}
+
+
+
+
+
+
+
+
+/* Information section */
+
 
 .intro-section {
-  margin-bottom: 24px;
+
+  margin-bottom:30px;
+
 }
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   Feature Cards
+   ===================================================== */
+
+
+.feature-grid {
+
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:22px;
+
+  margin-top:25px;
+
+}
+
+
+
+
+
+
+.feature-card {
+
+  background:#FFFFFF;
+
+  border-radius:14px;
+
+  padding:20px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:15px;
+
+  border:1px solid #F1D6DD;
+
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+
+}
+
+
+
+
+
+
+
+.feature-icon {
+
+  width:55px;
+
+  height:55px;
+
+  background:#C8102E;
+
+  color:#FFFFFF;
+
+  border-radius:50%;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  font-size:25px;
+
+}
+
+
+
+
+
+
+
+.feature-card h3 {
+
+  margin:0;
+
+  color:#7A1735;
+
+}
+
+
+
+
+
+
+
+.feature-card p {
+
+  margin:5px 0 0;
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   Form Card
+   ===================================================== */
+
 
 form {
-  background: #FFFFFF;
-  padding: 24px;
-  border-radius: 10px;
+
+  background:#FFFFFF;
+
+  padding:32px;
+
+  border-radius:14px;
+
+  box-shadow:0 4px 15px rgba(0,0,0,0.05);
+
 }
+
+
+
+
+
+
+
+
 
 fieldset {
-  margin: 0 0 24px;
-  padding: 20px;
-  border: 1px solid #D4D7DB;
-  border-radius: 8px;
+
+  padding:26px;
+
+  border:1px solid #D4D7DB;
+
+  border-radius:12px;
+
 }
+
+
+
+
+
+
+
 
 legend {
-  padding: 0 8px;
-  font-weight: 700;
+
+  padding:0 10px;
+
+  font-size:20px;
+
+  font-weight:700;
+
+  color:#7A1735;
+
 }
+
+
+
+
+
+
+
+
+
+/* Two-column layout for related fields */
+
+
+.form-grid {
+
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:24px;
+
+}
+
+
+
+
+
+
+
+
+/* Each field spacing */
+
 
 .form-group {
-  margin-bottom: 18px;
+
+  margin-bottom:22px;
+
 }
 
+
+
+
+
+
+
+
 label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 700;
+
+  display:block;
+
+  margin-bottom:8px;
+
+  font-weight:700;
+
+  font-size:16px;
+
 }
+
+
+
+
+
+
+
+
 
 input,
 select,
 textarea {
-  width: 100%;
-  padding: 10px 12px;
-  font: inherit;
-  border: 1px solid #BFC4CA;
-  border-radius: 6px;
-  background: #FFFFFF;
+
+
+  width:100%;
+
+
+  padding:14px 16px;
+
+
+  font:inherit;
+
+
+  border:1px solid #BFC4CA;
+
+
+  border-radius:8px;
+
+
+  background:#FFFFFF;
+
+
 }
+
+
+
+
+
+
+
+
+input,
+select {
+
+
+  height:46px;
+
+
+}
+
+
+
+
+
+
+
 
 textarea {
-  resize: vertical;
+
+
+  min-height:120px;
+
+
+  resize:vertical;
+
+
 }
+
+
+
+
+
+
+
+
+
+/* Input focus state */
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+
+  outline:none;
+
+
+  border:2px solid #C8102E;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* Checkbox */
+
 
 .checkbox-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+
+
+  display:flex;
+
+
+  align-items:center;
+
+
+  gap:10px;
+
+
+  margin-top:12px;
+
+
 }
+
+
+
+
+
+
 
 .checkbox-row input {
-  width: auto;
+
+
+  width:18px;
+
+
+  height:18px;
+
+
 }
 
+
+
+
+
+
+
+
 .checkbox-row label {
-  margin: 0;
-  font-weight: 400;
+
+
+  margin:0;
+
+
+  font-weight:400;
+
+
 }
 
 .feature-icon {
@@ -114,13 +496,101 @@ button {
   cursor: pointer;
 }
 
+
+
+
+
+
+
+
 button:hover {
-  background: #7A1735;
+
+
+  background:#7A1735;
+
+
 }
 
+
+
+
+
+
+
+
+
+/* Footer */
+
+
 .site-footer {
-  margin-top: 32px;
-  color: #676B72;
-  background: #FFFFFF;
-  border-top: 1px solid #E4E5E7;
+
+
+  margin-top:36px;
+
+
+  padding:20px;
+
+
+  color:#676B72;
+
+
+  background:#FFFFFF;
+
+
+  border-top:1px solid #E4E5E7;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* Responsive layout */
+
+
+@media(max-width:700px){
+
+
+  .form-grid {
+
+
+    grid-template-columns:1fr;
+
+
+  }
+
+
+
+  .feature-grid {
+
+
+    grid-template-columns:1fr;
+
+
+  }
+
+
+
+  .brand-content {
+
+
+    flex-direction:column;
+
+  }
+
+
+
+  .campus-image {
+
+
+    width:100%;
+
+  }
+
+
 }
