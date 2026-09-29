@@ -64,12 +64,21 @@ body {
 
 }
 
+
 /* Display the University of Houston campus */
+
 img[alt="University of Houston campus"] {
-  content: url("uh-sugar-land-campus-cougar-statue.jpg");
-  max-width: 100%;
-  height: auto;
+
+  content:url("uh-sugar-land-campus-cougar-statue.jpg");
+
+  max-width:100%;
+
+  height:auto;
+
 }
+
+
+
 
 h1,
 h2 {
@@ -167,7 +176,7 @@ h2 {
 
   height:55px;
 
-  background:#C8102E;
+  background:#B00D29;
 
   color:#FFFFFF;
 
@@ -218,8 +227,165 @@ h2 {
 
 
 /* =====================================================
-   Form Card
+   How It Works Section
    ===================================================== */
+
+
+.how-it-works {
+
+  margin-top:40px;
+
+  margin-bottom:35px;
+
+  text-align:center;
+
+}
+
+
+
+
+
+
+
+/* Horizontal 3-step layout */
+
+.steps-container {
+
+  list-style:none;
+
+  padding:40px 0 0;
+
+  margin:0;
+
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  position:relative;
+
+}
+
+
+
+
+
+
+
+/* Connecting line from step 1 to step 3 */
+
+.steps-container::before {
+
+  content:"";
+
+  position:absolute;
+
+  top:64px;
+
+  left:16.67%;
+
+  right:16.67%;
+
+  height:2px;
+
+  background:#F1B6C2;
+
+}
+
+
+
+
+
+
+
+/* Individual step */
+
+.step-item {
+
+  position:relative;
+
+  text-align:center;
+
+  z-index:1;
+
+}
+
+
+
+
+
+
+
+/* Number circle */
+
+.step-circle {
+
+  width:48px;
+
+  height:48px;
+
+  margin:0 auto 18px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#FFFFFF;
+
+  border:2px solid #C8102E;
+
+  color:#C8102E;
+
+  font-size:20px;
+
+  font-weight:700;
+
+}
+
+
+
+
+
+
+
+.step-item h3 {
+
+  margin:0 0 8px;
+
+  color:#7A1735;
+
+}
+
+
+
+
+
+
+
+.step-item p {
+
+  margin:0 auto;
+
+  max-width:220px;
+
+  color:#676B72;
+
+  font-size:14px;
+
+}
+
+
+
+
+
+
+
+
+
+/* Form Card */
 
 
 form {
@@ -245,6 +411,8 @@ form {
 fieldset {
 
   padding:26px;
+
+  margin-bottom:24px;
 
   border:1px solid #D4D7DB;
 
@@ -334,6 +502,24 @@ label {
 
 
 
+/* Required field indicator */
+
+
+.required {
+
+  color:#C8102E;
+
+  font-weight:700;
+
+}
+
+
+
+
+
+
+
+
 
 input,
 select,
@@ -402,19 +588,18 @@ textarea {
 
 
 
-/* Input focus state */
+/* Helper text under form fields */
 
 
-input:focus,
-select:focus,
-textarea:focus {
+small {
 
+  display:block;
 
-  outline:none;
+  margin-top:6px;
 
+  color:#676B72;
 
-  border:2px solid #C8102E;
-
+  font-size:13px;
 
 }
 
@@ -426,10 +611,50 @@ textarea:focus {
 
 
 
-/* Checkbox */
+/* Input validation state */
 
 
-.checkbox-row {
+input:invalid,
+select:invalid,
+textarea:invalid {
+
+  border:2px solid #C8102E;
+
+}
+
+
+
+
+
+
+
+
+
+/* Keyboard accessibility focus state */
+
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+
+  outline:3px solid #F1B6C2;
+
+  border-color:#C8102E;
+
+}
+
+
+
+
+
+
+
+
+
+/* Radio buttons */
+
+
+.radio-row {
 
 
   display:flex;
@@ -438,10 +663,10 @@ textarea:focus {
   align-items:center;
 
 
-  gap:10px;
+  gap:12px;
 
 
-  margin-top:12px;
+  margin-top:10px;
 
 
 }
@@ -452,7 +677,7 @@ textarea:focus {
 
 
 
-.checkbox-row input {
+.radio-row input {
 
 
   width:18px;
@@ -470,10 +695,10 @@ textarea:focus {
 
 
 
-.checkbox-row label {
+.radio-row label {
 
 
-  margin:0;
+  margin-right:15px;
 
 
   font-weight:400;
@@ -481,19 +706,37 @@ textarea:focus {
 
 }
 
-.feature-icon {
-  background: #B00D29;
-}
+
+
+
+
+
+
+
+
+/* Button */
+
 
 button {
-  padding: 12px 22px;
-  font: inherit;
-  font-weight: 700;
-  color: #FFFFFF;
-  background: #a11028;
-  border: 0;
-  border-radius: 8px;
-  cursor: pointer;
+
+  margin-top:24px;
+
+  padding:12px 22px;
+
+  font:inherit;
+
+  font-weight:700;
+
+  color:#FFFFFF;
+
+  background:#A11028;
+
+  border:0;
+
+  border-radius:8px;
+
+  cursor:pointer;
+
 }
 
 
@@ -553,7 +796,7 @@ button:hover {
 /* Responsive layout */
 
 
-@media(max-width:700px){
+@media(max-width:800px){
 
 
   .form-grid {
@@ -576,6 +819,44 @@ button:hover {
 
 
 
+  /* Stack How It Works vertically on smaller screens */
+
+
+  .steps-container {
+
+
+    grid-template-columns:1fr;
+
+    gap:35px;
+
+  }
+
+
+
+
+  /* Change connecting line from horizontal
+     to vertical on mobile */
+
+
+  .steps-container::before {
+
+
+    top:0;
+
+    bottom:0;
+
+    left:50%;
+
+    right:auto;
+
+    width:2px;
+
+    height:auto;
+
+  }
+
+
+
   .brand-content {
 
 
@@ -589,6 +870,20 @@ button:hover {
 
 
     width:100%;
+
+  }
+
+
+
+  /* Stack radio buttons vertically on mobile */
+
+
+  .radio-row {
+
+
+    flex-direction:column;
+
+    align-items:flex-start;
 
   }
 
