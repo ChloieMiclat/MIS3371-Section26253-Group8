@@ -21,7 +21,7 @@ The repository is organized into the following sections to document the project 
 | Folder | Description |
 |---|---|
 | [Client Interface Development](./Client%20Interface%20Development) | Contains the CougarTutor+ HTML and CSS files used to develop the tutoring appointment interface. |
-| [Design & Planning](./Design%20%26%20Planning) | Contains system design documents, diagrams, and planning materials for the project. |
+| [Design & Planning](./Design%20%26%20Planning/) | Contains system design documents including workflow diagrams, state transition diagrams, data dictionary, architecture diagrams, and responsibility notes. |
 | [In-Class Practice](./In-Class%20Practice) | Contains practice activities and exercises completed during class sessions. |
 | [Milestone Documents](./Milestone%20Documents) | Contains project milestone deliverables, including requirements, user stories, business rules, and team documentation. |
 
