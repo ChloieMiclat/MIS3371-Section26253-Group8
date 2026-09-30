@@ -2,17 +2,11 @@
 
 ## I. Project Overview
 
-**Scenario**
+**Scenario**: **CougarTutor+** is a tutoring appointment booking system designed to improve the process of connecting students seeking academic assistance with available tutors. The system provides a centralized platform for organizing tutoring requests and appointment management, replacing informal coordination methods such as emails, sign-up sheets, and word-of-mouth communication.
 
-**CougarTutor+** is a tutoring appointment booking system designed to improve the process of connecting students seeking academic assistance with available tutors. The system provides a centralized platform for organizing tutoring requests and appointment management, replacing informal coordination methods such as emails, sign-up sheets, and word-of-mouth communication.
+**Project Purpose**: The purpose of **CougarTutor+** is to create a more organized, efficient, and transparent process for managing tutoring appointment requests. The system provides a structured approach for students to request tutoring support and for tutoring activities to be coordinated through a centralized platform.
 
-**Project Purpose**
-
-The purpose of **CougarTutor+** is to create a more organized, efficient, and transparent process for managing tutoring appointment requests. The system provides a structured approach for students to request tutoring support and for tutoring activities to be coordinated through a centralized platform.
-
-**Project Focus**
-
-The project focuses on improving the tutoring appointment request process by providing a reliable system for submitting, managing, and tracking tutoring requests.
+**Project Focus**: The project focuses on improving the tutoring appointment request process by providing a reliable system for submitting, managing, and tracking tutoring requests.
 
 
 ## II. Repository Structure
@@ -27,7 +21,7 @@ The repository is organized into the following sections to document the project 
 | [Milestone Documents](./Milestone%20Documents) | Contains project milestone deliverables, including requirements, user stories, business rules, and team documentation. |
 
 
-## III. Milestone 1 Documents
+## III. Milestone Documents
 
 - [01 - Business Problem + Scope](./Milestone%20Documents/01%20-%20Business%20Problem%20%2B%20Scope.docx)
 - [02 - Stakeholders](./Milestone%20Documents/02%20-%20Stakeholders.docx)
