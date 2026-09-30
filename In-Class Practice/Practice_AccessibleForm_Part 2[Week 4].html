@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!--
+    WEEK 4 — SESSION 2 LIVE DEMO
+    Transaction: Submit Tutoring Appointment Request
+
+    Goal:
+    Turn the semantic page from Session 1 into an accessible transaction form.
+
+    Teaching focus:
+    1. <form>
+    2. <label> + for/id connection
+    3. id vs name
+    4. Appropriate control types
+    5. <fieldset> + <legend>
+    6. Native HTML constraints
+    7. Accessibility
+  -->
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="CougarTutor.css">
+
+  <title>CougarTutor+ Tutoring Appointment request</title>
+
+</head>
+
+
+<body>
+
+
+<div class="page-shell">
+
+
+
+ <!-- =====================================================
+     CougarTutor+ Brand Header
+     ===================================================== -->
+
+     <header class="brand-header">
+
+      <div class="brand-content">
+    
+        <div class="brand-text">
+    
+    
+          <p class="university-name">
+            University of Houston
+          </p>
+    
+    
+          <h1>
+            CougarTutor+
+          </h1>
+    
+    
+          <h3>
+            Your Campus Resource for Tutoring and Academic Success
+          </h3>
+    
+    
+        </div>
+
+
+
+
+</header>
+
+<!-- =====================================================
+     CougarTutor+ Hero Banner
+     
+     This section introduces the purpose of the platform.
+     It is separate from the feature cards because it
+     communicates the overall mission of CougarTutor+.
+     ===================================================== -->
+
+
+     <section class="hero-banner">
+
+
+      <div class="hero-content">
+    
+    
+        <h2>
+          Tutoring, made simple for every Cougar.
+        </h2>
+    
+    
+        <p>
+          Request a session with a peer or professional tutor
+          in three simple steps.
+        </p>
+    
+    
+      </div>
+    
+    
+    </section>
+
+
+
+
+
+<!-- Main = primary content -->
+
+<main>
+
+
+
+
+
+
+
+    <!-- =====================================================
+         Feature Cards
+         
+         These cards highlight the benefits of CougarTutor+.
+         They are different from the How It Works section,
+         which explains the tutoring process.
+         ===================================================== -->
+
+
+    <div class="feature-grid">
+
+
+      <!-- FEATURE 1 -->
+
+
+      <div class="feature-card">
+
+
+        <div class="feature-icon">
+          🎓
+        </div>
+
+
+        <div>
+
+
+          <h3>
+            Qualified Tutors
+          </h3>
+
+
+          <p>
+            Connect with tutors who can
+            support your academic needs.
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <!-- FEATURE 2 -->
+
+
+      <div class="feature-card">
+
+
+        <div class="feature-icon">
+          🤝
+        </div>
+
+
+        <div>
+
+
+          <h3>
+            Personalized Support
+          </h3>
+
+
+          <p>
+            Receive help focused on the
+            topics and concepts you need
+            to understand.
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <!-- FEATURE 3 -->
+
+
+      <div class="feature-card">
+
+
+        <div class="feature-icon">
+          💻
+        </div>
+
+
+        <div>
+
+
+          <h3>
+            Flexible Learning
+          </h3>
+
+
+          <p>
+            Choose online or in-person
+            tutoring based on your preference.
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+  </section>
+
+
+
+
+
+
+
+  <!-- =====================================================
+       How It Works Section
+       ===================================================== -->
+
+
+
+  <section class="how-it-works">
+
+
+    <h2>
+      How It Works
+    </h2>
+
+
+
+
+
+    <!--
+      Ordered list used because the process
+      follows a specific sequence.
+
+      Each step is an <li class="step-item">
+      inside the <ol>.
+
+      The CSS creates the horizontal stepper layout:
+      - numbered circles
+      - connecting line
+      - centered text
+
+      The structure is a list,
+      and the styling transforms it into a stepper.
+    -->
+
+
+
+    <ol class="steps-container">
+
+
+
+
+
+      <!-- STEP 1 -->
+
+
+      <li class="step-item">
+
+
+        <div class="step-circle">
+          1
+        </div>
+
+
+        <h3>
+          Pick your course
+        </h3>
+
+
+        <p>
+          Tell us which course and topic
+          you need help with.
+        </p>
+
+
+      </li>
+
+
+
+
+
+
+
+      <!-- STEP 2 -->
+
+
+      <li class="step-item">
+
+
+        <div class="step-circle">
+          2
+        </div>
+
+
+        <h3>
+          Choose a time
+        </h3>
+
+
+        <p>
+          Select a preferred date, time,
+          and session length.
+        </p>
+
+
+      </li>
+
+
+
+
+
+
+
+      <!-- STEP 3 -->
+
+
+      <li class="step-item">
+
+
+        <div class="step-circle">
+          3
+        </div>
+
+
+        <h3>
+          Meet and learn
+        </h3>
+
+
+        <p>
+          Work with a tutor on campus
+          or online.
+        </p>
+
+
+      </li>
+
+
+
+
+
+    </ol>
+
+
+
+  </section>
+
+
+
+
+
+  <!-- Tutoring request transaction -->
+
+
+  <section>
+
+
+    <h2>
+      Tutoring Request Details
+    </h2>
+
+
+    <p>
+      Submit your tutoring appointment request by providing
+      the required information for scheduling and review.
+    </p>
+
+
+    <form method="get">
+
+
+
+      <!-- =====================================================
+           YOUR INFORMATION FIELDSET
+           
+           Contains personal student details.
+           ===================================================== -->
+
+
+      <fieldset>
+
+
+        <legend>
+          Your Information
+        </legend>
+
+
+
+
+
+        <!-- STUDENT ID + STUDENT EMAIL -->
+
+
+        <div class="form-grid">
+
+
+
+
+
+          <!-- STUDENT ID -->
+
+
+          <div class="form-group">
+
+
+            <label for="studentId">
+              Student ID <span class="required">*</span>
+            </label>
+
+
+            <input
+              id="studentId"
+              name="studentId"
+              type="text"
+              inputmode="numeric"
+              maxlength="7"
+              pattern="[0-9]{7}"
+              placeholder="1234567"
+              aria-describedby="studentIdHelp"
+              title="Student ID must be exactly 7 digits"
+              required
+            >
+
+
+            <small id="studentIdHelp">
+              7 digits, no dashes.
+            </small>
+
+
+          </div>
+                      <!-- STUDENT EMAIL -->
+
+
+                      <div class="form-group">
+
+
+                        <label for="studentEmail">
+                          Student Email <span class="required">*</span>
+                        </label>
+          
+          
+                        <input
+                          id="studentEmail"
+                          name="studentEmail"
+                          type="email"
+                          autocomplete="email"
+                          placeholder="example@cougarnet.uh.edu"
+                          aria-describedby="emailHelp"
+                          required
+                        >
+          
+          
+                        <small id="emailHelp">
+                          Use your UH student email address.
+                        </small>
+          
+          
+                      </div>
+          
+          
+          
+                    </div>
+          
+          
+                  </fieldset>
+          
+          
+          
+          
+          
+          
+          
+                  <!-- =====================================================
+                       SESSION DETAILS FIELDSET
+                       
+                       Contains tutoring appointment information.
+                       ===================================================== -->
+          
+          
+          
+                  <fieldset>
+          
+          
+                    <legend>
+                      Session Details
+                    </legend>
+          
+          
+          
+          
+          
+          
+          
+                    <!-- SUBJECT -->
+          
+          
+                    <div class="form-group">
+          
+          
+                      <label for="subject">
+                        Course / Subject <span class="required">*</span>
+                      </label>
+          
+          
+                      <select
+                        id="subject"
+                        name="subject"
+                        required
+                      >
+          
+          
+                        <option value="">
+                          Choose a subject
+                        </option>
+          
+          
+                        <option value="MIS3371">
+                          MIS 3371
+                        </option>
+          
+          
+                        <option value="accounting">
+                          Accounting
+                        </option>
+          
+          
+                        <option value="economics">
+                          Economics
+                        </option>
+          
+          
+                        <option value="statistics">
+                          Statistics
+                        </option>
+          
+          
+                        <option value="other">
+                          Other
+                        </option>
+          
+          
+                      </select>
+          
+          
+                    </div>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+                    <!-- TOPIC DESCRIPTION -->
+          
+          
+                    <div class="form-group">
+          
+          
+                      <label for="topicDescription">
+                        Tutoring Topic / Reason <span class="required">*</span>
+                      </label>
+          
+          
+                      <textarea
+                        id="topicDescription"
+                        name="topicDescription"
+                        rows="4"
+                        minlength="10"
+                        maxlength="300"
+                        placeholder="Example: Need help understanding database normalization..."
+                        aria-describedby="topicHelp topicCount"
+                        required
+                      ></textarea>
+          
+          
+                      <small id="topicHelp">
+                        Maximum 300 characters.
+                      </small>
+          
+          
+                      <small id="topicCount">
+                        0 / 300 characters
+                      </small>
+          
+          
+                    </div>
+          
+          
+          
+          
+          
+          
+          
+          
+                    <!-- REQUESTED DATE + REQUESTED TIME -->
+          
+          
+                    <div class="form-grid">
+          
+          
+          
+          
+          
+                      <!-- REQUESTED DATE -->
+          
+          
+                      <div class="form-group">
+          
+          
+                        <label for="requestedDate">
+                          Preferred Date <span class="required">*</span>
+                        </label>
+          
+          
+                        <input
+                          id="requestedDate"
+                          name="requestedDate"
+                          type="date"
+                          aria-describedby="dateHelp"
+                          required
+                        >
+          
+          
+                        <small id="dateHelp">
+                          Select today or a future date.
+                        </small>
+          
+          
+                      </div>
+          
+          
+          
+          
+          
+          
+          
+                      <!-- REQUESTED TIME -->
+          
+          
+                      <div class="form-group">
+          
+          
+                        <label for="requestedTime">
+                          Preferred Time <span class="required">*</span>
+                        </label>
+          
+          
+                        <input
+                          id="requestedTime"
+                          name="requestedTime"
+                          type="time"
+                          min="08:00"
+                          max="20:00"
+                          step="900"
+                          aria-describedby="timeHelp"
+                          required
+                        >
+          
+          
+                        <small id="timeHelp">
+                          Available hours: 9:00 AM - 5:00 PM.
+                        </small>
+          
+          
+                      </div>
+          
+          
+          
+                    </div>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+                    <!-- REQUESTED DURATION -->
+          
+          
+                    <div class="form-group">
+          
+          
+                      <label for="requestedDuration">
+                        Session Length <span class="required">*</span>
+                      </label>
+          
+          
+                      <select
+                        id="requestedDuration"
+                        name="requestedDuration"
+                        required
+                      >
+          
+          
+                        <option value="">
+                          Choose duration
+                        </option>
+          
+          
+                        <option value="30">
+                          30 minutes
+                        </option>
+          
+          
+                        <option value="60">
+                          60 minutes
+                        </option>
+          
+          
+                      </select>
+          
+          
+                    </div>
+          
+          
+          
+          
+          
+          
+          
+          
+                        <!-- =====================================================
+         FIELDSET 3: TUTORING FORMAT
+         
+         Radio buttons are used because the student
+         should select only one tutoring format.
+         ===================================================== -->
+
+
+         <fieldset>
+
+
+          <legend>
+            Tutoring Format
+          </legend>
+    
+    
+    
+    
+    
+          <div class="radio-row">
+    
+    
+    
+    
+    
+            <!-- ONLINE OPTION -->
+    
+    
+            <input
+              id="online"
+              name="format"
+              type="radio"
+              value="online"
+              required
+            >
+    
+    
+            <label for="online">
+              Online
+            </label>
+    
+    
+    
+    
+    
+            <!-- IN PERSON OPTION -->
+    
+    
+            <input
+              id="inPerson"
+              name="format"
+              type="radio"
+              value="in-person"
+            >
+    
+    
+            <label for="inPerson">
+              In person
+            </label>
+    
+    
+    
+    
+    
+          </div>
+    
+    
+    
+        </fieldset>
+  
+
+          
+          
+                  <!-- Submit button -->
+          
+          
+                  <button type="submit">
+          
+                    Submit Tutoring Request
+          
+                  </button>
+          
+          
+                  <p class="submit-note">
+                    Your request will be reviewed and you will receive a confirmation within 24 hours.
+                  </p>
+          
+          
+          
+          
+          
+                </form>
+          
+          
+          
+          
+              </section>
+          
+          
+          
+          
+          
+            </main>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <!-- Footer -->
+          
+          
+          <footer class="site-footer">
+          
+          
+            <p>
+              MIS 3371 — Week 4 Live Demo
+            </p>
+          
+          
+          </footer>
+          
+          
+          
+          
+          
+          
+          </div>
+          
+          
+          
+          
+          
+          <script>
+          
+          
+          // Automatically prevent selecting past dates
+          
+          const dateInput = document.getElementById("requestedDate");
+          
+          const today = new Date().toISOString().split("T")[0];
+          
+          dateInput.min = today;
+          
+          
+          
+          
+          
+          // Character counter for tutoring topic
+          
+          const topicInput = document.getElementById("topicDescription");
+          
+          const topicCounter = document.getElementById("topicCount");
+          
+          
+          topicInput.addEventListener("input", function(){
+          
+          
+            topicCounter.textContent =
+              topicInput.value.length + " / 300 characters";
+          
+          
+          });
+          
+          
+          </script>
+          
+          
+          
+          
+          
+          </body>
+          
+          
+          </html>
