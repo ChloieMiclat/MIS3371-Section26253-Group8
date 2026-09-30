@@ -10,7 +10,7 @@
 
 The purpose of **CougarTutor+** is to create a more organized, efficient, and transparent process for managing tutoring appointment requests. The system provides a structured approach for students to request tutoring support and for tutoring activities to be coordinated through a centralized platform.
 
-<u>**Project Focu:s**</u>
+<u>**Project Focus**</u>
 
 The project focuses on improving the tutoring appointment request process by providing a reliable system for submitting, managing, and tracking tutoring requests.
 
