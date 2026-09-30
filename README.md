@@ -2,15 +2,15 @@
 
 ## I. Project Overview
 
-<u>**Scenario**</u>
+<u>**Scenario:**</u>
 
 **CougarTutor+** is a tutoring appointment booking system designed to improve the process of connecting students seeking academic assistance with available tutors. The system provides a centralized platform for organizing tutoring requests and appointment management, replacing informal coordination methods such as emails, sign-up sheets, and word-of-mouth communication.
 
-<u>**Project Purpose**</u>
+<u>**Project Purpose:**</u>
 
 The purpose of **CougarTutor+** is to create a more organized, efficient, and transparent process for managing tutoring appointment requests. The system provides a structured approach for students to request tutoring support and for tutoring activities to be coordinated through a centralized platform.
 
-<u>**Project Focus**</u>
+<u>**Project Focu:s**</u>
 
 The project focuses on improving the tutoring appointment request process by providing a reliable system for submitting, managing, and tracking tutoring requests.
 
