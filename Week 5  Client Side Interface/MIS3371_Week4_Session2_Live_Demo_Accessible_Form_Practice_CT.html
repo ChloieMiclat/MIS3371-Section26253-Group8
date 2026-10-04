@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!--
+    WEEK 4 — SESSION 2 LIVE DEMO
+    Transaction: Submit Tutoring Appointment Request
+
+    Goal:
+    Turn the semantic page from Session 1 into an accessible transaction form.
+
+    Teaching focus:
+    1. <form>
+    2. <label> + for/id connection
+    3. id vs name
+    4. Appropriate control types
+    5. <fieldset> + <legend>
+    6. Native HTML constraints
+    7. Accessibility
+  -->
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles_CT_interface.css">
+
+  <title>CougarTutor+ Tutoring Appointment request</title>
+
+</head>
+
+
+<body>
+
+
+<div class="page-shell">
+
+
+
+ <!-- =====================================================
+     CougarTutor+ Brand Header
+     ===================================================== -->
+
+<header class="brand-header">
+
+  <div class="brand-content">
+
+    <div class="brand-text">
+
+      <h1>CougarTutor+</h1>
+
+      <h3>Academic Tutoring Support Platform</h3>
+
+      <p>Your gateway to academic success at UH. </p>
+f
+    </div>
+
+  <!-- Replace image with UH campus image in project folder -->
+    <img
+      src="images/uh-campus.jpg"
+      alt="University of Houston campus"
+      class="campus-image"
+    >
+
+  </div>
+
+</header>
+
+
+<!-- Main = primary content -->
+
+<main>
+
+
+  <!-- Information before submitting -->
+
+  <section class="intro-section">
+
+    <h2>Before You Submit</h2>
+
+    <p>
+      Please have your student ID, course information,
+      tutoring topic, and preferred schedule ready.
+    </p>
+
+
+    <!-- =====================================================
+         Feature Cards
+         ===================================================== -->
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          📖
+        </div>
+
+        <div>
+
+          <h3>Expert Tutors</h3>
+
+          <p>
+            Get help from qualified tutors
+            who understand your courses.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          📅
+        </div>
+
+        <div>
+
+          <h3>Flexible Scheduling</h3>
+
+          <p>
+            Choose a date and time that
+            fits your schedule.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          💻
+        </div>
+
+        <div>
+
+          <h3>Online Options</h3>
+
+          <p>
+            Meet virtually or in person
+            based on your preference.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+    <!-- Tutoring request transaction -->
+
+
+    <section>
+
+
+      <h2>
+        Tutoring Request Details
+      </h2>
+
+
+      <p>
+        Submit your tutoring appointment request by providing
+        the required information for scheduling and review.
+      </p>
+
+
+
+
+
+      <form method="get">
+
+
+
+
+
+        <fieldset>
+
+
+          <legend>
+            Tutoring Information
+          </legend>
+
+
+
+
+
+
+
+          <!-- STUDENT ID + STUDENT EMAIL -->
+
+
+          <div class="form-grid">
+
+
+
+
+
+            <!-- STUDENT ID -->
+
+
+            <div class="form-group">
+
+
+              <label for="studentId">
+                Student ID <span class="required">*</span>
+              </label>
+
+
+              <input
+                id="studentId"
+                name="studentId"
+                type="text"
+                pattern="[0-9]{7}"
+                title="Student ID must be exactly 7 digits"
+                required
+              >
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- STUDENT EMAIL -->
+
+
+            <div class="form-group">
+
+
+              <label for="studentEmail">
+                Student Email <span class="required">*</span>
+              </label>
+
+
+              <input
+                id="studentEmail"
+                name="studentEmail"
+                type="email"
+                required
+              >
+
+
+            </div>
+
+
+
+
+          </div>
+
+                    <!-- SUBJECT -->
+
+
+          <div class="form-group">
+
+
+            <label for="subject">
+              Course / Subject <span class="required">*</span>
+            </label>
+
+
+
+            <select
+              id="subject"
+              name="subject"
+              required
+            >
+
+
+              <option value="">
+                Choose a subject
+              </option>
+
+
+              <option value="MIS3371">
+                MIS 3371
+              </option>
+
+
+              <option value="accounting">
+                Accounting
+              </option>
+
+
+              <option value="economics">
+                Economics
+              </option>
+
+
+              <option value="statistics">
+                Statistics
+              </option>
+
+
+              <option value="other">
+                Other
+              </option>
+
+
+
+            </select>
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- TOPIC DESCRIPTION -->
+
+
+          <div class="form-group">
+
+
+            <label for="topicDescription">
+              Tutoring Topic / Reason <span class="required">*</span>
+            </label>
+
+
+
+            <textarea
+              id="topicDescription"
+              name="topicDescription"
+              rows="4"
+              cols="45"
+              placeholder="Please describe what you need help with..."
+              required
+            ></textarea>
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- REQUESTED DATE + REQUESTED TIME -->
+
+
+          <div class="form-grid">
+
+
+
+
+
+            <!-- REQUESTED DATE -->
+
+
+            <div class="form-group">
+
+
+              <label for="requestedDate">
+                Preferred Date <span class="required">*</span>
+              </label>
+
+
+
+              <input
+                id="requestedDate"
+                name="requestedDate"
+                type="date"
+                required
+              >
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- REQUESTED TIME -->
+
+
+            <div class="form-group">
+
+
+              <label for="requestedTime">
+                Preferred Time <span class="required">*</span>
+              </label>
+
+
+
+              <input
+                id="requestedTime"
+                name="requestedTime"
+                type="time"
+                required
+              >
+
+
+
+            </div>
+
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- REQUESTED DURATION -->
+
+
+          <div class="form-group">
+
+
+            <label for="requestedDuration">
+              Session Length <span class="required">*</span>
+            </label>
+
+
+
+            <select
+              id="requestedDuration"
+              name="requestedDuration"
+              required
+            >
+
+
+              <option value="">
+                Choose duration
+              </option>
+
+
+              <option value="30">
+                30 minutes
+              </option>
+
+
+              <option value="60">
+                60 minutes
+              </option>
+
+
+
+            </select>
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- ONLINE PREFERENCE -->
+
+
+          <div class="checkbox-row">
+
+
+            <input
+              id="online"
+              name="online"
+              type="checkbox"
+              value="yes"
+            >
+
+
+
+            <label for="online">
+              I prefer online tutoring
+            </label>
+
+
+
+          </div>
+
+
+
+
+
+        </fieldset>
+
+
+
+
+
+
+
+
+
+        <!-- Submit button -->
+
+
+        <button type="submit">
+
+          Submit Tutoring Request
+
+        </button>
+
+
+
+
+
+      </form>
+
+
+
+
+    </section>
+
+
+
+
+
+  </main>
+
+
+
+
+
+
+
+
+
+  <!-- Footer -->
+
+
+  <footer class="site-footer">
+
+
+    <p>
+      MIS 3371 — Week 4 Live Demo
+    </p>
+
+
+  </footer>
+
+
+
+
+
+
+</div>
+
+
+</body>
+
+
+</html>
