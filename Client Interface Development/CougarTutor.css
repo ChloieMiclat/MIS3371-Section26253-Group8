@@ -900,3 +900,31 @@ button:hover {
   height: auto;
   display: block;
 }
+
+/* UX addition: required note */
+.required-note {
+  margin-top: 0;
+  font-size: 14px;
+  color: #676B72;
+}
+
+/* Back to top link */
+html {
+  scroll-behavior:smooth;
+}
+
+.back-to-top {
+  text-align:right;
+  margin:24px 0 0;
+}
+
+.back-to-top a {
+  color:#A11028;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.back-to-top a:hover,
+.back-to-top a:focus-visible {
+  text-decoration:underline;
+}
