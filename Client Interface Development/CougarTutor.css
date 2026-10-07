@@ -928,3 +928,100 @@ html {
 .back-to-top a:focus-visible {
   text-decoration:underline;
 }
+
+/* =====================================================
+   FEATURE CARDS — PHOTO BACKGROUNDS
+   ===================================================== */
+
+.feature-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 205px;
+  padding: 22px;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+
+  color: #FFFFFF;
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* =====================================================
+   BACKGROUND PHOTOS + OMBRÉ
+   ===================================================== */
+
+.feature-card:nth-child(1) {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(128, 0, 32, 0.15) 0%,
+      rgba(128, 0, 32, 0.35) 40%,
+      rgba(128, 0, 32, 0.90) 100%
+    ),
+    url("images/Screenshot 2026-10-06 201747.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.feature-card:nth-child(2) {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(128, 0, 32, 0.15) 0%,
+      rgba(128, 0, 32, 0.35) 40%,
+      rgba(128, 0, 32, 0.90) 100%
+    ),
+    url("images/personalized-support (2).jpg");
+
+  background-position: center;
+  background-size: cover;
+}
+
+.feature-card:nth-child(3) {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(128, 0, 32, 0.15) 0%,
+      rgba(128, 0, 32, 0.35) 40%,
+      rgba(128, 0, 32, 0.90) 100%
+    ),
+    url("images/flexible-learning (2).jpg");
+
+  background-position: center;
+  background-size: cover;
+}
+
+/* =====================================================
+   FEATURE CARD CONTENT
+   ===================================================== */
+
+/* Keep content above the background */
+.feature-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smaller headings */
+.feature-card h3 {
+  color: #FFFFFF;
+  font-size: 18px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+/* Smaller paragraph text */
+.feature-card p {
+  color: #FFFFFF;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+/* Icons */
+.feature-icon {
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
