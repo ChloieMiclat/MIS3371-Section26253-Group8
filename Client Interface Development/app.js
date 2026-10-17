@@ -20,3 +20,11 @@ requestedTime.addEventListener("change", function () {
     }
 
 });
+// BR-7: A request becomes Submitted only after validation passes
+function getRequestStatus(formIsValid) {
+    if (formIsValid) {
+        return "Submitted";
+    } else {
+        return "Validation Failed";
+    }
+}
