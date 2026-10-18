@@ -46,7 +46,18 @@ form.addEventListener("submit", function (event) {
         return;
     }
 
-    const status = getRequestStatus(timeisValid);
+    const status = getRequestStatus(timeIsValid);
 
     console.log(status);
 });
+
+// BR-7: Show the request status to the user
+const requestStatus = document.querySelector("#requestStatus");
+
+function showRequestStatus() {
+    const formIsValid = isWithinTutoringHours(requestedTime.value);
+    const status = getRequestStatus(formIsValid);
+    requestStatus.textContent = "Request status: " + status;
+}
+
+form.addEventListener("submit", showRequestStatus);
