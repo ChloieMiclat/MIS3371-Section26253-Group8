@@ -28,3 +28,25 @@ function getRequestStatus(formIsValid) {
         return "Validation Failed";
     }
 }
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function (event) {
+
+    const timeIsValid =
+        isWithinTutoringHours(requestedTime.value);
+
+    if (!timeIsValid) {
+
+        event.preventDefault();
+
+        timeMessage.textContent =
+            "Please choose a time between 9:00 AM and 5:00 PM.";
+
+        return;
+    }
+
+    const status = getRequestStatus(timeisValid);
+
+    console.log(status);
+});
