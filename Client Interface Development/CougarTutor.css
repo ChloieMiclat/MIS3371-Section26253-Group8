@@ -400,51 +400,25 @@ form {
 
 }
 
-
-
-
-
-
-
-
-
 fieldset {
-
-  padding:26px;
-
-  margin-bottom:24px;
-
-  border:1px solid #D4D7DB;
-
-  border-radius:12px;
-
+  padding: 0 26px 26px;
+  margin-bottom: 24px;
+  border: 1px solid #D4D7DB;
+  border-radius: 12px;
 }
-
-
-
-
-
-
 
 
 legend {
-
-  padding:0 10px;
-
-  font-size:20px;
-
-  font-weight:700;
-
-  color:#7A1735;
-
+  padding: 0 10px;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #7A1735;
 }
 
-
-
-
-
-
-
+fieldset > .form-group {
+  transform: translateY(-15px);
+}
 
 
 /* Two-column layout for related fields */
