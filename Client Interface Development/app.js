@@ -1,4 +1,4 @@
-// Tutoring hours (change these if the group picks different hours)
+// Tutoring hours 
 const OPEN_TIME = "09:00";
 const CLOSE_TIME = "17:00";
 
@@ -16,7 +16,7 @@ requestedTime.addEventListener("change", function () {
         timeMessage.textContent = "Time is available.";
     } else {
         timeMessage.textContent =
-            "Please choose a time from 9:00 AM through 4:59 PM.";
+            "Please select a time between 9:00 AM and 4:45 PM in 15-minute increments.";
     }
 
 });
@@ -30,34 +30,28 @@ function getRequestStatus(formIsValid) {
 }
 
 const form = document.querySelector("form");
+const requestStatus = document.querySelector("#requestStatus");
 
 form.addEventListener("submit", function (event) {
+
+    event.preventDefault();
 
     const timeIsValid =
         isWithinTutoringHours(requestedTime.value);
 
     if (!timeIsValid) {
 
-        event.preventDefault();
-
         timeMessage.textContent =
-            "Please choose a time from 9:00 AM through 4:59 PM.";
+            "Please select a time between 9:00 AM and 4:45 PM in 15-minute increments.";
+
+        requestStatus.textContent =
+            "Request status: Validation Failed";
 
         return;
     }
 
     const status = getRequestStatus(timeIsValid);
 
-    console.log(status);
+    requestStatus.textContent =
+        "Request status: " + status;
 });
-
-// BR-7: Show the request status to the user
-const requestStatus = document.querySelector("#requestStatus");
-
-function showRequestStatus() {
-    const formIsValid = isWithinTutoringHours(requestedTime.value);
-    const status = getRequestStatus(formIsValid);
-    requestStatus.textContent = "Request status: " + status;
-}
-
-form.addEventListener("submit", showRequestStatus);
