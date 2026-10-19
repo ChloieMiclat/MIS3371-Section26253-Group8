@@ -16,7 +16,48 @@ requestedTime.addEventListener("change", function () {
         timeMessage.textContent = "Time is available.";
     } else {
         timeMessage.textContent =
-            "Please choose a time between 9:00 AM and 5:00 PM.";
+            "Please choose a time from 9:00 AM through 4:59 PM.";
     }
 
 });
+// BR-7: A request becomes Submitted only after validation passes
+function getRequestStatus(formIsValid) {
+    if (formIsValid) {
+        return "Submitted";
+    } else {
+        return "Validation Failed";
+    }
+}
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function (event) {
+
+    const timeIsValid =
+        isWithinTutoringHours(requestedTime.value);
+
+    if (!timeIsValid) {
+
+        event.preventDefault();
+
+        timeMessage.textContent =
+            "Please choose a time from 9:00 AM through 4:59 PM.";
+
+        return;
+    }
+
+    const status = getRequestStatus(timeIsValid);
+
+    console.log(status);
+});
+
+// BR-7: Show the request status to the user
+const requestStatus = document.querySelector("#requestStatus");
+
+function showRequestStatus() {
+    const formIsValid = isWithinTutoringHours(requestedTime.value);
+    const status = getRequestStatus(formIsValid);
+    requestStatus.textContent = "Request status: " + status;
+}
+
+form.addEventListener("submit", showRequestStatus);
