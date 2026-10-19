@@ -16,7 +16,7 @@ requestedTime.addEventListener("change", function () {
         timeMessage.textContent = "Time is available.";
     } else {
         timeMessage.textContent =
-            "Please choose a time between 9:00 AM and 5:00 PM.";
+            "Please choose a time from 9:00 AM through 4:59 PM.";
     }
 
 });
@@ -41,7 +41,7 @@ form.addEventListener("submit", function (event) {
         event.preventDefault();
 
         timeMessage.textContent =
-            "Please choose a time between 9:00 AM and 5:00 PM.";
+            "Please choose a time from 9:00 AM through 4:59 PM.";
 
         return;
     }
