@@ -17,6 +17,10 @@ function isWithinTutoringHours(time) {
 // Rule 2: Requested time must be in 15-minute increments
 function isValidTimeIncrement(time) {
 
+    if (!isValidTimeFormat(time)) {
+        return false;
+    }
+
     const minutes = Number(time.split(":")[1]);
 
     return minutes === 0 ||
