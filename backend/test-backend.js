@@ -35,6 +35,11 @@ const tests = [
         expected: { valid: false, status: "Validation Failed" }
     },
     {
+    name: "Invalid - incomplete time format",
+    transaction: { requestedTime: "10:" },
+    expected: { valid: false, status: "Validation Failed" }
+    },
+    {
         name: "Invalid - no transaction sent",
         transaction: null,
         expected: { valid: false, status: "Validation Failed" }

@@ -1,5 +1,10 @@
 // Week 8 - Backend Transaction Processing
 
+// Validates that time uses a complete HH:MM format
+function isValidTimeFormat(time) {
+    const timeFormat = /^(?:[01]\d|2[0-3]):[0-5]\d$/;
+    return timeFormat.test(time);
+}
 // Tutoring hours
 const OPEN_TIME = "09:00";
 const CLOSE_TIME = "17:00";
@@ -50,6 +55,15 @@ function processTutoringRequest(transaction) {
         };
     }
 
+    // INVALID TIME FORMAT VALIDATION
+if (!isValidTimeFormat(transaction.requestedTime)) {
+    return {
+        valid: false,
+        status: "Validation Failed",
+        message: "Requested time must use the complete HH:MM format."
+    };
+}
+
     // BUSINESS RULE 1: Tutoring hours
     const timeIsValid =
         isWithinTutoringHours(transaction.requestedTime);
@@ -87,6 +101,7 @@ function processTutoringRequest(transaction) {
 }
 
 module.exports = {
+    isValidTimeFormat,
     isWithinTutoringHours,
     isValidTimeIncrement,
     getRequestStatus,
