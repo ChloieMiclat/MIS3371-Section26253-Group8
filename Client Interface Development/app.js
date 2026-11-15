@@ -1,57 +1,95 @@
-// Tutoring hours 
+// Week 10 - CougarTutor+ frontend
+// The browser gives quick feedback; the Lambda backend makes the final decision.
+
+// API Gateway endpoint (Lambda backend)
+const API_URL = "https://2f5wr6pvo1.execute-api.us-east-1.amazonaws.com/tutoring-requests";
+
+// Tutoring hours (sessions must end by 5:00 PM)
 const OPEN_TIME = "09:00";
 const CLOSE_TIME = "17:00";
 
-// Checks if the requested time is during tutoring hours
-function isWithinTutoringHours(time) {
-  return time >= OPEN_TIME && time < CLOSE_TIME;
+// Turns "HH:MM" into minutes after midnight
+function toMinutes(time) {
+    const parts = time.split(":");
+    return Number(parts[0]) * 60 + Number(parts[1]);
 }
 
-const requestedTime = document.querySelector("#requestedTime");
-const timeMessage = document.querySelector("#timeMessage");
-
-requestedTime.addEventListener("change", function () {
-
-    if (isWithinTutoringHours(requestedTime.value)) {
-        timeMessage.textContent = "Time is available.";
-    } else {
-        timeMessage.textContent =
-            "Please select a time between 9:00 AM and 4:45 PM in 15-minute increments.";
-    }
-
-});
-// BR-7: A request becomes Submitted only after validation passes
-function getRequestStatus(formIsValid) {
-    if (formIsValid) {
-        return "Submitted";
-    } else {
-        return "Validation Failed";
-    }
-}
-
+// Form fields
 const form = document.querySelector("form");
+const studentId = document.querySelector("#studentId");
+const studentEmail = document.querySelector("#studentEmail");
+const subject = document.querySelector("#subject");
+const topicDescription = document.querySelector("#topicDescription");
+const requestedDate = document.querySelector("#requestedDate");
+const requestedTime = document.querySelector("#requestedTime");
+const requestedDuration = document.querySelector("#requestedDuration");
+const timeMessage = document.querySelector("#timeMessage");
 const requestStatus = document.querySelector("#requestStatus");
 
-form.addEventListener("submit", function (event) {
+// Live time feedback - matches the backend rules
+function updateTimeMessage() {
+    const time = requestedTime.value;
+    const duration = Number(requestedDuration.value);
 
-    event.preventDefault();
-
-    const timeIsValid =
-        isWithinTutoringHours(requestedTime.value);
-
-    if (!timeIsValid) {
-
-        timeMessage.textContent =
-            "Please select a time between 9:00 AM and 4:45 PM in 15-minute increments.";
-
-        requestStatus.textContent =
-            "Request status: Validation Failed";
-
+    if (!time) {
+        timeMessage.textContent = "Available hours: 9:00 AM - 5:00 PM.";
         return;
     }
 
-    const status = getRequestStatus(timeIsValid);
+    const minutes = Number(time.split(":")[1]);
 
-    requestStatus.textContent =
-        "Request status: " + status;
+    if (time < OPEN_TIME || time >= CLOSE_TIME || minutes % 15 !== 0) {
+        timeMessage.textContent =
+            "Please select a time between 9:00 AM and 5:00 PM in 15-minute increments.";
+    } else if (duration && toMinutes(time) + duration > toMinutes(CLOSE_TIME)) {
+        timeMessage.textContent =
+            "This session would end after 5:00 PM. 30-minute sessions must start by 4:30 PM and 60-minute sessions by 4:00 PM.";
+    } else {
+        timeMessage.textContent = "Time is available.";
+    }
+}
+
+requestedTime.addEventListener("change", updateTimeMessage);
+requestedDuration.addEventListener("change", updateTimeMessage);
+
+// Sends the whole request to the Lambda backend through API Gateway
+form.addEventListener("submit", async function (event) {
+
+    event.preventDefault();
+
+    const selectedFormat = document.querySelector('input[name="format"]:checked');
+
+    const transaction = {
+        studentId: studentId.value.trim(),
+        studentEmail: studentEmail.value.trim(),
+        subject: subject.value,
+        topicDescription: topicDescription.value.trim(),
+        requestedDate: requestedDate.value,
+        requestedTime: requestedTime.value,
+        requestedDuration: requestedDuration.value,
+        format: selectedFormat ? selectedFormat.value : ""
+    };
+
+    requestStatus.textContent = "Request status: Sending...";
+
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(transaction)
+        });
+
+        const result = await response.json();
+
+        requestStatus.textContent =
+            "Request status: " + result.status + " - " + result.message;
+
+        if (result.success) {
+            requestStatus.textContent += " (Not saved yet.)";
+        }
+
+    } catch (error) {
+        requestStatus.textContent =
+            "Request status: Could not reach the server. Please try again.";
+    }
 });
