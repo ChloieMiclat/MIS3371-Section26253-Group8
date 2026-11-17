@@ -999,3 +999,70 @@ html {
   color: #FFFFFF;
   flex-shrink: 0;
 }
+
+/*Confirmation number box*/
+.confirmation-box {
+  margin-top: 12px;
+  padding: 14px 18px;
+  border: 2px solid #C8102E;
+  border-radius: 10px;
+  background: #FFF5F7;
+}
+
+.confirmation-box p{
+  margin: 4px 0;
+}
+
+.confirmation-label {
+  font-weight: 700;
+  color: #7A1735;
+}
+
+.confirmation-number {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: monospace;
+  color: #A11028;
+}
+
+.confirmation-note {
+  color: #676B72;
+}
+
+/* Check Request Status results */
+.status-result {
+  margin-top: 16px;
+}
+
+.status-result dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+gap: 8px 18px;
+margin: 0;
+padding : 16px 18px;
+border: 1px solid #F1D6DD;
+border-radius: 10px;
+background: #F7F7F8;
+}
+
+.status-result dt {
+  font-weight: 700;
+  color: #7A1735;
+}
+
+.status-result dd{
+  margin: 0;
+}
+
+/* Phones: stack label above value */
+@media(max-width: 600px) {
+  .status-result dl {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .status-result dt {
+    margin-top: 8px;
+  }
+}

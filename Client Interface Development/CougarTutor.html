@@ -49,15 +49,10 @@
       <div class="brand-content">
     
         <div class="brand-text">
-    
+         <h1>CougarTutor+</h1>
   
-    
-    
-        </div>
-
-
-
-
+       </div>
+  </div>
 </header>
 
 <!-- =====================================================
@@ -78,7 +73,7 @@
 <section class="intro-section">
 
   <h2>
-      Tutoring, made simple for every Cougar.
+      Tutoring, made fsimple for every Cougar.
   </h2>
 
 
@@ -812,6 +807,12 @@
                   <!-- Submit button -->
           
                   <p id="requestStatus" aria-live="polite">Request status: Not submitted</p>
+                  <!-- Confirmation number: only shown after the request is saved in the database-->
+                   <div id="confirmationBox" class="confirmation-box" hidden>
+                  <p class="confirmation-label">Your confirmation number</p>
+                  <p id="confirmationNumber" class="confirmation-number"></p>
+                  <p class="confirmation-note">Save this number to check your request</p>
+                  </div> 
 
                   <button type="submit">
           
@@ -834,8 +835,25 @@
           
           
               </section>
-          
-          
+          <!-- Check Request Status: Looks up a saved request in DynamoDB with a GET request-->
+          <section id="check-status">
+            <h2> Check Request Status</h2>
+            <p>Enter your confirmation number you received after submitting a request.</p>
+
+            <form id="statusForm" novalidate>
+              <div class="form-group">
+                <label for="lookupNumber">Confirmation Number</label>
+                <input type="text" id="lookupNumber" name="lookupNumber" 
+                placeholder="CT-20261115-2D4570" autocomplete="off">
+                </div>
+
+                <button type="submit" id="viewStatusButton"> View Status  </button>
+
+                <!-- Results from the backend appear here-->
+                 <div id="statusResult" class="status-result" aria-live="polite"></div>
+                 
+            </form>
+          </section>
           
           
           
@@ -907,7 +925,79 @@
           
           
           });
-          
+          //--------- Check Request Status (GET Lookup)----------
+
+          const statusForm = document.querySelector("#statusForm");
+          const lookupNumber = document.querySelector("#lookupNumber");
+          const viewStatusButton = document.querySelector("#viewStatusButton");
+          const statusResult = document.querySelector("#statusResult");
+
+          //Turns "16:30" into "4:30 PM"
+          function formatTime(time) {
+            const parts = time.split(":");
+              const hour = Number(parts[0]);
+              const ampm = hour >= 12 ? "PM" : "AM";
+              return ((hour % 12) || 12) + ":" + parts[1] + " " + ampm;
+            }
+
+            //Adds one "Label : value" row to the results list
+            function addRow(list, label, value) {
+              const dt = document.createElement("dt");
+              dt.textContent = label;
+              const dd = document.createElement("dd");
+              dd.textContent = value;
+              list.append(dt, dd);
+            }
+
+            statusForm.addEventListener("submit", async function (event) {
+              event.preventDefault();
+
+              const number = lookupNumber.value.trim();
+              statusResult.textContent = "";
+
+              //Blank box: tell the user right away
+              if (!number) {
+                statusResult.textContent = "Please enter your confirmation number.";
+                return;
+              }
+
+              statusResult.textContent = "Looking up...";
+              viewStatusButton.disabled = true;
+
+              try {
+                //GET request through API Gateway -> Lambda -> DynamoDB
+                const response = await fetch(API_URL + "/" + encodeURIComponent(number));
+                const result = await response.json();
+
+                statusResult.textContent = "";
+
+                if (response.ok && result.success) {
+                  //Everything shown here comes from the backend response
+                  const r = result.request;
+                  const list = document.createElement("dl");
+                  addRow(list, "Confirmation Number", r.requestId);
+                  addRow(list, "Status", r.status);
+                  addRow(list, "Submitted", new Date(r.submittedAt).toLocaleString("en-US",{
+                    timeZone: "America/Chicago", dateStyle: "medium", timeStyle: "short"
+                  }));
+                  
+                  addRow(list, "Course / subject", r.subject);
+                  addRow(list, "Session date", r.requestedDate);
+                  addRow(list, "Session time", formatTime(r.requestedTime));
+                  addRow(list, "Length", r.requestedDuration + " minutes");
+                  addRow(list, "Format", r.format === "in-person" ? "In person" : "Online");
+                  statusResult.appendChild(list);
+                } else {
+                  //400 (bad format) or 404 (not found)" show the backend's message
+                  statusResult.textContent = result.message || "Something went wrong. Please try again.";
+                }
+              }catch (error) {
+                statusResult.textContent = "We could not reach the server. Please try again later.";
+              } finally {
+                viewStatusButton.disabled = false;
+              }
+            });
+    
           
           </script>
           
