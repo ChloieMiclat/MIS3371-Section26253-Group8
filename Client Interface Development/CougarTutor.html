@@ -878,7 +878,7 @@
           
           
             <p>
-              MIS 3371 — Week 4 Live Demo
+            MIS 3371 — CougarTutor+ Milestone 4
             </p>
           
           
@@ -977,6 +977,7 @@
                   const list = document.createElement("dl");
                   addRow(list, "Confirmation Number", r.requestId);
                   addRow(list, "Status", r.status);
+                   addRow(list, "Outcome", r.processingOutcome);
                   addRow(list, "Submitted", new Date(r.submittedAt).toLocaleString("en-US",{
                     timeZone: "America/Chicago", dateStyle: "medium", timeStyle: "short"
                   }));
