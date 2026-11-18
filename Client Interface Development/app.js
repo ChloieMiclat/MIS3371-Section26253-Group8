@@ -25,6 +25,10 @@ const requestedTime = document.querySelector("#requestedTime");
 const requestedDuration = document.querySelector("#requestedDuration");
 const timeMessage = document.querySelector("#timeMessage");
 const requestStatus = document.querySelector("#requestStatus");
+// Confirmation box (shows the confirmation number from the backend)
+const confirmationBox = document.querySelector("#confirmationBox");
+const confirmationNumber = document.querySelector("#confirmationNumber");
+
 
 // Live time feedback - matches the backend rules
 function updateTimeMessage() {
@@ -71,8 +75,9 @@ form.addEventListener("submit", async function (event) {
     };
 
     requestStatus.textContent = "Request status: Sending...";
+    confirmationBox.hidden = true; 
 
-    try {
+      try {
         const response = await fetch(API_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -81,11 +86,18 @@ form.addEventListener("submit", async function (event) {
 
         const result = await response.json();
 
-        requestStatus.textContent =
-            "Request status: " + result.status + " - " + result.message;
+        if (response.ok && result.success) {
+            requestStatus.textContent =
+                "Request status: " + result.status + " - " + result.message;
 
-        if (result.success) {
-            requestStatus.textContent += " (Not saved yet.)";
+            // The backend only sends a requestId AFTER the request is saved in DynamoDB
+            if (result.requestId) {
+                confirmationNumber.textContent = result.requestId;
+                confirmationBox.hidden = false;
+            }
+        } else {
+            requestStatus.textContent =
+                "Request status: " + (result.message || "Something went wrong. Please try again.");
         }
 
     } catch (error) {
